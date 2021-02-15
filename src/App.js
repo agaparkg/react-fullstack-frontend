@@ -5,6 +5,13 @@ import Login from "./components/Login";
 import Signup from "./components/Signup";
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isLoggedIn: false,
+    };
+  }
+
   render() {
     return (
       <Router>
