@@ -10,20 +10,17 @@ class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: "",
-      password: "",
-      emailError: "",
-      passwordError: "",
+      error: "",
       success: "",
       person: {},
+      hint: false,
     };
   }
 
   handleLoginSubmit = (e) => {
-    const { email, password } = this.state;
     e.preventDefault();
-
-    this.setState({ emailError: "", passwordError: "" });
+    const email = this.email.value;
+    const password = this.password.value;
 
     fetch("http://localhost:5000/api/v1/person/login", {
       method: "PUT",
@@ -35,57 +32,70 @@ class Login extends Component {
     })
       .then((res) => res.json())
       .then((data) => {
-        if (data.emailError) {
-          this.setState({ emailError: data.emailError });
-        }
-
-        if (data.passwordError) {
-          this.setState({ passwordError: data.passwordError });
+        if (data.error) {
+          this.setState({ error: data.error, success: "" });
         }
 
         if (data.success) {
-          this.setState({ result: data.success, person: data.person });
+          this.setState({
+            success: data.success,
+            person: data.person,
+            error: "",
+          });
         }
       })
       .catch((err) => console.log(err));
   };
 
-  handleInputChange = (e) => {
-    this.setState({ [e.target.type]: e.target.value });
-  };
-
+  showHint = () => this.setState({ hint: !this.state.hint });
   render() {
-    const { emailError, passwordError, result, person } = this.state;
+    const { error, success, person, hint } = this.state;
     return (
       <form onSubmit={this.handleLoginSubmit}>
-        {result && (
+        {success && (
           <div className="greeting">
-            {result} {person.fname + " " + person.lname}
+            {success} {person.fname + " " + person.lname}
           </div>
         )}
-        <h3>Sign In</h3>
+        <h3 className="signin">
+          Sign In{" "}
+          <i
+            onMouseOver={this.showHint}
+            onMouseOut={this.showHint}
+            className="fa fa-question-circle"
+          ></i>
+          {hint && (
+            <div className="card card-body">
+              Test person: <br /> email: test@test.com password: abc123
+            </div>
+          )}
+        </h3>
 
         <div className="form-group">
           <label>Email address</label>
           <input
-            onChange={this.handleInputChange}
+            ref={(input) => (this.email = input)}
             type="email"
             className="form-control"
             placeholder="Enter email"
           />
         </div>
-        {emailError && <div style={errorStyle}>{emailError}</div>}
+        {error.toLowerCase().includes("email") && (
+          <div style={errorStyle}>{error}</div>
+        )}
 
         <div className="form-group">
           <label>Password</label>
           <input
-            onChange={this.handleInputChange}
+            ref={(input) => (this.password = input)}
             type="password"
             className="form-control"
             placeholder="Enter password"
           />
         </div>
-        {passwordError && <div style={errorStyle}>{passwordError}</div>}
+        {error.toLowerCase().includes("password") && (
+          <div style={errorStyle}>{error}</div>
+        )}
         <div className="form-group">
           <div className="custom-control custom-checkbox">
             <input
@@ -100,7 +110,7 @@ class Login extends Component {
         </div>
 
         <button
-          disabled={result}
+          disabled={success}
           type="submit"
           className="btn btn-primary btn-block"
         >
