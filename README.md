@@ -5,6 +5,8 @@
 
 # Frontend UI (deployed to AWS Amplify)
 
+[AWS Amplify Deployment](https://main.du25dudbs06a1.amplifyapp.com/)
+
 # Backend API endpoints
 
 ### GET All People
