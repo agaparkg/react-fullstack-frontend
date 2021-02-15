@@ -1,7 +1,9 @@
-# This is a Fullstack React App
+# Fullstack React App
 
 ![Login Page](./src/images/login.png)
 ![Signup Page](./src/images/signup.png)
+
+# Frontend UI (deployed to AWS Amplify)
 
 # Backend API endpoints
 
