@@ -50,13 +50,14 @@ const People = (props) => {
 
   useEffect(() => {
     let setTime;
-    setTimeout(() => {
-      setTime = setMessage("");
+    setTime = setTimeout(() => {
+      setMessage("");
     }, 3000);
     return () => {
       clearTimeout(setTime);
     };
   }, [message]);
+
   return (
     <div className="nav-wrapper">
       <div className="nav-inner">
