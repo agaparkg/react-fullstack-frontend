@@ -39,13 +39,18 @@ class Signup extends Component {
 
         if (data.success) {
           this.setState({ success: data.success, error: "" });
-          setTimeout(() => {
+          this.setTime = setTimeout(() => {
             this.setState({ error: "", success: "" });
           }, 3000);
         }
       })
       .catch((err) => console.log(err));
   };
+
+  componentWillUnmount() {
+    clearTimeout(this.setTime);
+  }
+
   render() {
     const { error, success } = this.state;
     return (

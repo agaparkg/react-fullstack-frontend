@@ -41,15 +41,22 @@ const People = (props) => {
         .then((res) => res.json())
         .then((data) => {
           setMessage(() => data.message);
-          setTimeout(() => {
-            setMessage("");
-          }, 3000);
         })
         .catch((err) => console.log({ error: err.toString() }));
 
       setPeople((people) => people.filter((person) => person._id !== id));
     }
   };
+
+  useEffect(() => {
+    let setTime;
+    setTimeout(() => {
+      setTime = setMessage("");
+    }, 3000);
+    return () => {
+      clearTimeout(setTime);
+    };
+  }, [message]);
   return (
     <div className="nav-wrapper">
       <div className="nav-inner">

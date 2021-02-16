@@ -42,7 +42,7 @@ class Login extends Component {
             person: data.person,
             error: "",
           });
-          setTimeout(() => {
+          this.setTime = setTimeout(() => {
             this.setState({ success: "" });
             this.props.history.push("/home");
             this.props.handleUserAccess();
@@ -51,6 +51,10 @@ class Login extends Component {
       })
       .catch((err) => console.log(err));
   };
+
+  componentWillUnmount() {
+    clearTimeout(this.setTime);
+  }
 
   showHint = () => {
     this.setState({ hint: !this.state.hint });
