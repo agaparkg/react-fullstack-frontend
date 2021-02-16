@@ -58,7 +58,7 @@ class App extends Component {
                   {isLoggedIn && (
                     <>
                       <li>
-                        <Link className="nav-link" to={"/"}>
+                        <Link className="nav-link" to={"/home"}>
                           Home
                         </Link>
                       </li>
@@ -96,9 +96,20 @@ class App extends Component {
           <Switch>
             {!isLoggedIn && (
               <>
-                <Route exact path="/">
+                {/* <Route exact path="/">
                   <Redirect to="/login" />
-                </Route>
+                </Route> */}
+                {/* <Route exact path="/" component={Login} /> */}
+                <Route
+                  exact
+                  path="/"
+                  render={(props) => (
+                    <Login
+                      {...props}
+                      handleUserAccess={this.handleUserAccess}
+                    />
+                  )}
+                />
                 <Route
                   path="/login"
                   render={(props) => (
@@ -113,10 +124,11 @@ class App extends Component {
             )}
             {isLoggedIn && (
               <>
-                <Route path="/login">
+                {/* <Route path="/login">
                   <Redirect to="/" />
-                </Route>
-                <Route exact path="/" component={Home} />
+                </Route> */}
+                {/* <Route exact path="/home" component={Home} /> */}
+                <Route path="/home" component={Home} />
                 <Route path="/about" component={About} />
                 <Route path="/people" component={People} />
                 <Route path="/contact" component={Contact} />
