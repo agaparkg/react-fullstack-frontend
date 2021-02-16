@@ -74,7 +74,7 @@ class Login extends Component {
               ></i>
               {hint && (
                 <div className="card card-body">
-                  Test person: <br /> email: test@test.com password: abc123
+                  Test credentials: <br /> email: t@t.com password: 123456
                 </div>
               )}
             </h3>
