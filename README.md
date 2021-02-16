@@ -11,24 +11,24 @@
 
 ### GET All People
 
-[https://react-fullstack-backend.herokuapp.com/api/v1/people](https://react-fullstack-backend.herokuapp.com/api/v1/people)
+https://react-fullstack-backend.herokuapp.com/api/v1/people
 
 ### GET A Single Person
 
-https://react-fullstack-backend.herokuapp.com/api/v1/person?id=${id}
+https://<i></i>react-fullstack-backend.herokuapp.com/api/v1/person?id=${id}
 
 ### POST A New Person
 
-https://react-fullstack-backend.herokuapp.com/api/v1/register
+https://<i></i>react-fullstack-backend.herokuapp.com/api/v1/register
 
 ### DELETE A Person
 
-https://react-fullstack-backend.herokuapp.com/api/v1/person/delete
+https://<i></i>react-fullstack-backend.herokuapp.com/api/v1/person/delete
 
 ### PATCH (Update) A Person Info
 
-https://react-fullstack-backend.herokuapp.com/api/v1/person/update
+https://<i></i>react-fullstack-backend.herokuapp.com/api/v1/person/update
 
 ### PUT Login A Person
 
-https://react-fullstack-backend.herokuapp.com/api/v1/person/login
+https://<i></i>react-fullstack-backend.herokuapp.com/api/v1/person/login
