@@ -15,11 +15,6 @@ class AddPerson extends Component {
     };
   }
 
-  handleInputChange = (e) => {
-    const { name, value } = e.target;
-    this.setState({ [name]: value });
-  };
-
   handleFormSubmit = (e) => {
     e.preventDefault();
     let fname = this.fname.value;
