@@ -22,7 +22,7 @@ class Login extends Component {
     const email = this.email.value;
     const password = this.password.value;
 
-    fetch("http://localhost:5000/api/v1/person/login", {
+    fetch("https://react-fullstack-backend.herokuapp.com/api/v1/person/login", {
       method: "PUT",
       headers: {
         Accept: "application/json",
