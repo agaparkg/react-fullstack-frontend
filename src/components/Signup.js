@@ -28,7 +28,7 @@ class Signup extends Component {
     let email = this.email.value;
     let password = this.password.value;
 
-    fetch("http://localhost:5000/api/v1/register", {
+    fetch("https://react-fullstack-backend.herokuapp.com/api/v1/register", {
       method: "POST",
       headers: {
         Accept: "application/json",

@@ -12,7 +12,7 @@ const People = (props) => {
   useEffect(() => {
     setIsLoading(false);
 
-    const url = "http://localhost:5000/api/v1/people";
+    const url = "https://react-fullstack-backend.herokuapp.com/api/v1/people";
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
@@ -31,9 +31,12 @@ const People = (props) => {
     }
 
     if (btn === "delete") {
-      fetch(`http://localhost:5000/api/v1/person/delete?id=${id}`, {
-        method: "DELETE",
-      })
+      fetch(
+        `https://react-fullstack-backend.herokuapp.com/api/v1/person/delete?id=${id}`,
+        {
+          method: "DELETE",
+        }
+      )
         .then((res) => res.json())
         .then((data) => {
           setMessage(() => data.message);
