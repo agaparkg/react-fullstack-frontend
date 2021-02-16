@@ -11,24 +11,24 @@
 
 ### GET All People
 
-https://jwt-practice-backend.herokuapp.com/api/v1/people
+[https://react-fullstack-backend.herokuapp.com/api/v1/people](https://react-fullstack-backend.herokuapp.com/api/v1/people)
 
-### GET Single Person
+### GET A Single Person
 
-https://jwt-practice-backend.herokuapp.com/api/v1/person
+https://react-fullstack-backend.herokuapp.com/api/v1/person?id=${id}
 
 ### POST A New Person
 
-https://jwt-practice-backend.herokuapp.com/api/v1/register
+https://react-fullstack-backend.herokuapp.com/api/v1/register
 
 ### DELETE A Person
 
-https://jwt-practice-backend.herokuapp.com/api/v1/person/delete
+https://react-fullstack-backend.herokuapp.com/api/v1/person/delete
 
 ### PATCH (Update) A Person Info
 
-https://jwt-practice-backend.herokuapp.com/api/v1/person/update
+https://react-fullstack-backend.herokuapp.com/api/v1/person/update
 
 ### PUT Login A Person
 
-https://jwt-practice-backend.herokuapp.com/api/v1/person/login
+https://react-fullstack-backend.herokuapp.com/api/v1/person/login
