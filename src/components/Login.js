@@ -52,7 +52,9 @@ class Login extends Component {
       .catch((err) => console.log(err));
   };
 
-  showHint = () => this.setState({ hint: !this.state.hint });
+  showHint = () => {
+    this.setState({ hint: !this.state.hint });
+  };
 
   render() {
     const { error, success, person, hint } = this.state;
