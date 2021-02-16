@@ -15,18 +15,13 @@ class Signup extends Component {
     };
   }
 
-  handleInputChange = (e) => {
-    const { name, value } = e.target;
-    this.setState({ [name]: value });
-  };
-
   handleFormSubmit = (e) => {
     e.preventDefault();
-    let fname = this.fname.value;
-    let lname = this.lname.value;
-    let age = this.age.value;
-    let email = this.email.value;
-    let password = this.password.value;
+    const fname = this.fname.value;
+    const lname = this.lname.value;
+    const age = this.age.value;
+    const email = this.email.value;
+    const password = this.password.value;
 
     fetch("https://react-fullstack-backend.herokuapp.com/api/v1/register", {
       method: "POST",
