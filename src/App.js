@@ -13,6 +13,7 @@ import Home from "./components/Home";
 import About from "./components/About";
 import People from "./components/People";
 import Contact from "./components/Contact";
+import AddPerson from "./components/AddPerson";
 
 class App extends Component {
   constructor(props) {
@@ -119,6 +120,7 @@ class App extends Component {
                 <Route path="/about" component={About} />
                 <Route path="/people" component={People} />
                 <Route path="/contact" component={Contact} />
+                <Route path="/add" component={AddPerson} />
               </>
             )}
           </Switch>
