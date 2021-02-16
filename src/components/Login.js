@@ -42,9 +42,9 @@ class Login extends Component {
             person: data.person,
             error: "",
           });
-          console.log(this.props);
           setTimeout(() => {
             this.setState({ success: "" });
+            this.props.history.push("/home");
             this.props.handleUserAccess();
           }, 2000);
         }

@@ -11,17 +11,18 @@ const People = (props) => {
 
   useEffect(() => {
     setIsLoading(false);
-
+    let setTime;
     const url = "https://react-fullstack-backend.herokuapp.com/api/v1/people";
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
-        setTimeout(() => {
+        setTime = setTimeout(() => {
           setPeople(data.people);
           setIsLoading(true);
         }, 500);
       })
       .catch((err) => console.log({ error: err.toString() }));
+    return () => clearTimeout(setTime);
   }, []);
 
   const handleActions = (btn, id = 0) => {
