@@ -3,10 +3,11 @@ import { Table, Button } from "reactstrap";
 import Person from "./Person";
 import Loading from "./Loading";
 
-const People = () => {
+const People = (props) => {
   const [people, setPeople] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [modal, setModal] = useState(false);
+  const [message, setMessage] = useState("");
 
   useEffect(() => {
     setIsLoading(false);
@@ -25,17 +26,22 @@ const People = () => {
 
   const handleActions = (btn, id = 0) => {
     if (btn === "edit" || btn === "add") {
+      props.history.push("/add");
       setModal((isModalOpen) => !isModalOpen);
     }
 
     if (btn === "delete") {
-      console.log(id);
-      // fetch(`http://localhost:5000/api/v1/person/delete?id=${id}`, {
-      //   method: "DELETE",
-      // })
-      //   .then((res) => res.json())
-      //   .then((data) => console.log({ message: data.message }))
-      //   .catch((err) => console.log({ error: err.toString() }));
+      fetch(`http://localhost:5000/api/v1/person/delete?id=${id}`, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          setMessage(() => data.message);
+          setTimeout(() => {
+            setMessage("");
+          }, 3000);
+        })
+        .catch((err) => console.log({ error: err.toString() }));
 
       setPeople((people) => people.filter((person) => person._id !== id));
     }
@@ -47,6 +53,7 @@ const People = () => {
           <Loading />
         ) : (
           <>
+            {message && <div className="greeting">{message}</div>}
             <Table>
               <thead>
                 <tr>
