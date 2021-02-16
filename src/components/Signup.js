@@ -45,11 +45,6 @@ class Signup extends Component {
         if (data.success) {
           this.setState({ success: data.success, error: "" });
           setTimeout(() => {
-            fname = "";
-            lname = "";
-            age = "";
-            email = "";
-            password = "";
             this.setState({ error: "", success: "" });
           }, 3000);
         }
@@ -58,7 +53,6 @@ class Signup extends Component {
   };
   render() {
     const { error, success } = this.state;
-
     return (
       <div className="auth-wrapper">
         <div className="auth-inner">
