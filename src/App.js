@@ -29,7 +29,6 @@ class App extends Component {
 
   render() {
     const { isLoggedIn } = this.state;
-    console.log({ isLoggedIn });
     return (
       <Router>
         <div className="App">
@@ -96,10 +95,6 @@ class App extends Component {
           <Switch>
             {!isLoggedIn && (
               <>
-                {/* <Route exact path="/">
-                  <Redirect to="/login" />
-                </Route> */}
-                {/* <Route exact path="/" component={Login} /> */}
                 <Route
                   exact
                   path="/"
@@ -124,10 +119,6 @@ class App extends Component {
             )}
             {isLoggedIn && (
               <>
-                {/* <Route path="/login">
-                  <Redirect to="/" />
-                </Route> */}
-                {/* <Route exact path="/home" component={Home} /> */}
                 <Route path="/home" component={Home} />
                 <Route path="/about" component={About} />
                 <Route path="/people" component={People} />

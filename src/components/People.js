@@ -105,5 +105,3 @@ const People = (props) => {
 };
 
 export default People;
-
-// http://localhost:5000/api/v1/people
